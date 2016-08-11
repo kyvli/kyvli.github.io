@@ -79,5 +79,5 @@ backup:
     type: git
     repository:
        github: git@github.com:kyvli/kyvli.github.io.git,hexo
-       gitcafe: git@git.coding.net:kyvi/kyvi.git,hexo
+       coding: git@git.coding.net:kyvi/kyvi.git,hexo
 
