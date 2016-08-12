@@ -69,15 +69,15 @@ theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
-deploy: 
+deploy:  
   type: git
-  repo: 
+  repo:  
       github: git@github.com:kyvli/kyvli.github.io.git,master
       coding: git@git.coding.net:kyvi/kyvi.git,master
 
 backup:
     type: git
-    repository:
+    repository: 
        github: git@github.com:kyvli/kyvli.github.io.git,hexo
        coding: git@git.coding.net:kyvi/kyvi.git,hexo
 
