@@ -33,7 +33,7 @@ prefix=${APPDATA}\npm
 npm config ls -l
 ``` 
 
-可以看出来，其实npm的prefix默认值就是nodejs安装目录；
+可以看出来，其实npm的prefix默认值就是nodejs安装目录，只是这个配置文件覆盖了默认值。
 
 还有个需要注意的地方就是，之前的nodejs版本如果设置prefix为nodejs安装目录，npm命令执行会报错，v4.4.7版本已经没有这个问题了。
 
