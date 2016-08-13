@@ -92,7 +92,7 @@
 <meta property="og:site_name" content="北溟的Blog">
 <meta property="og:description" content="linux下，nodejs安装完成后，prefix变量值为nodejs安装目录，这样npm install -g 安装的包都会在安装目录下；
 但是在win下，默认的prefix值并不是nodejs的安装目录，而是C:\Users\username\AppData\Roaming，然后npm install -g安装的包都会在C:\Users\username\AppData\Roaming\npm">
-<meta property="og:updated_time" content="2016-08-12T11:47:05.748Z">
+<meta property="og:updated_time" content="2016-08-13T01:02:56.117Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Windows nodejs prefix变量设置">
 <meta name="twitter:description" content="linux下，nodejs安装完成后，prefix变量值为nodejs安装目录，这样npm install -g 安装的包都会在安装目录下；
@@ -337,7 +337,7 @@
 <p>然后执行这个命令确认一下：</p>
 <pre><code class="batch">npm config ls -l
 </code></pre>
-<p>可以看出来，其实npm的prefix默认值就是nodejs安装目录；</p>
+<p>可以看出来，其实npm的prefix默认值就是nodejs安装目录，只是这个配置文件覆盖了默认值。</p>
 <p>还有个需要注意的地方就是，之前的nodejs版本如果设置prefix为nodejs安装目录，npm命令执行会报错，v4.4.7版本已经没有这个问题了。</p>
 
       
