@@ -92,7 +92,7 @@
 <meta property="og:site_name" content="北溟的Blog">
 <meta property="og:description" content="linux下，nodejs安装完成后，prefix变量值为nodejs安装目录，这样npm install -g 安装的包都会在安装目录下；
 但是在win下，默认的prefix值并不是nodejs的安装目录，而是C:\Users\username\AppData\Roaming，然后npm install -g安装的包都会在C:\Users\username\AppData\Roaming\npm">
-<meta property="og:updated_time" content="2016-08-13T01:02:56.117Z">
+<meta property="og:updated_time" content="2016-08-13T06:10:38.820Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Windows nodejs prefix变量设置">
 <meta name="twitter:description" content="linux下，nodejs安装完成后，prefix变量值为nodejs安装目录，这样npm install -g 安装的包都会在安装目录下；
@@ -325,10 +325,10 @@
       
 
       
-        <p>linux下，nodejs安装完成后，prefix变量值为nodejs安装目录，这样npm install -g 安装的包都会在安装目录下；</p>
-<p>但是在win下，默认的prefix值并不是nodejs的安装目录，而是C:\Users\username\AppData\Roaming，然后npm install -g安装的包都会在C:\Users\username\AppData\Roaming\npm下，感觉还是放在安装目录比较好，也方便把配置好的整个nodejs环境部署到其他电脑；</p>
+        <p>linux下，nodejs安装完成后，prefix变量值为nodejs安装目录，这样<code>npm install -g</code> 安装的包都会在安装目录下；</p>
+<p>但是在win下，默认的prefix值并不是nodejs的安装目录，而是<code>C:\Users\username\AppData\Roaming</code>，然后<code>npm install -g</code>安装的包都会在<code>C:\Users\username\AppData\Roaming\npm</code>下，感觉还是放在安装目录比较好，也方便把配置好的整个nodejs环境部署到其他电脑；</p>
 <p>方法很简单：</p>
-<p>打开nodejs的安装目录下的这个文件，D:\svr\nodejs\node_modules\npm\npmrc，文件内容如下：</p>
+<p>打开nodejs的安装目录下的这个文件，<code>D:\svr\nodejs\node_modules\npm\npmrc</code>，文件内容如下：</p>
 <pre><code class="batch">prefix=${APPDATA}\npm
 </code></pre>
 <p>注释这行即可，或者直接删掉这个文件</p>
