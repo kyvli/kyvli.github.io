@@ -10,3 +10,6 @@ date: 2016-08-09 00:25:50
 - 简介： IT民工一枚
 - Email： kyvli@hotmail.com
 
+Fuck the G F W !
+
+

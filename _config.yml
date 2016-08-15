@@ -14,7 +14,7 @@ duoshuo_shortname: kyvi
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: http://wangzfei.me
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -74,10 +74,11 @@ deploy:
   repo:  
       github: git@github.com:kyvli/kyvli.github.io.git,master
       coding: git@git.coding.net:kyvi/kyvi.git,master
-
 backup:
-    type: git
-    repository: 
-       github: git@github.com:kyvli/kyvli.github.io.git,hexo
-       coding: git@git.coding.net:kyvi/kyvi.git,hexo
+  type: git
+  repository: 
+     github: git@github.com:kyvli/kyvli.github.io.git,hexo
+     coding: git@git.coding.net:kyvi/kyvi.git,hexo
 
+sitemap:
+  path: sitemap.xml

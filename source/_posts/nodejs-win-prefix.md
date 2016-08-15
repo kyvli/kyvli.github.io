@@ -9,13 +9,13 @@ categories:
 
 
 
-linux下，nodejs安装完成后，prefix变量值为nodejs安装目录，这样npm install -g 安装的包都会在安装目录下；
+linux下，nodejs安装完成后，prefix变量值为nodejs安装目录，这样`npm install -g` 安装的包都会在安装目录下；
 
-但是在win下，默认的prefix值并不是nodejs的安装目录，而是C:\Users\username\AppData\Roaming，然后npm install -g安装的包都会在C:\Users\username\AppData\Roaming\npm下，感觉还是放在安装目录比较好，也方便把配置好的整个nodejs环境部署到其他电脑；
+但是在win下，默认的prefix值并不是nodejs的安装目录，而是`C:\Users\username\AppData\Roaming`，然后`npm install -g`安装的包都会在`C:\Users\username\AppData\Roaming\npm`下，感觉还是放在安装目录比较好，也方便把配置好的整个nodejs环境部署到其他电脑；
 
 方法很简单：
 
-打开nodejs的安装目录下的这个文件，D:\svr\nodejs\node_modules\npm\npmrc，文件内容如下：
+打开nodejs的安装目录下的这个文件，`D:\svr\nodejs\node_modules\npm\npmrc`，文件内容如下：
 
 ``` batch
 prefix=${APPDATA}\npm
