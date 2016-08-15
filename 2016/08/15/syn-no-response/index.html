@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="SYN,不响应SYN,iptables," />
 
 
 
@@ -84,15 +84,34 @@
 
 
 
-<meta name="description" content="宁静以致远">
-<meta property="og:type" content="website">
-<meta property="og:title" content="北溟的Blog">
-<meta property="og:url" content="http://wangzfei.me/categories/随笔/index.html">
+<meta name="description" content="最近碰到过两次服务器不响应SYN包的情况，刚开始感觉真的是莫名其妙，解决过程也是挺纠结的，记录一下：
+
+iptables问题
+
+同样的iptables策略在阿里云服务器上没有问题，但是在AWS EC2上就有问题，现象之一就是外部服务器可以跟服务器端口通信，但是同一VPC内部的服务器访问时，端口不通；
+经过排查，问题定位在iptables策略上，只能一条一条排查，最终发现问题出在这两条策略上：
+12">
+<meta property="og:type" content="article">
+<meta property="og:title" content="服务器不响应SYN的原因">
+<meta property="og:url" content="http://wangzfei.me/2016/08/15/syn-no-response/index.html">
 <meta property="og:site_name" content="北溟的Blog">
-<meta property="og:description" content="宁静以致远">
+<meta property="og:description" content="最近碰到过两次服务器不响应SYN包的情况，刚开始感觉真的是莫名其妙，解决过程也是挺纠结的，记录一下：
+
+iptables问题
+
+同样的iptables策略在阿里云服务器上没有问题，但是在AWS EC2上就有问题，现象之一就是外部服务器可以跟服务器端口通信，但是同一VPC内部的服务器访问时，端口不通；
+经过排查，问题定位在iptables策略上，只能一条一条排查，最终发现问题出在这两条策略上：
+12">
+<meta property="og:updated_time" content="2016-08-15T10:38:16.823Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="北溟的Blog">
-<meta name="twitter:description" content="宁静以致远">
+<meta name="twitter:title" content="服务器不响应SYN的原因">
+<meta name="twitter:description" content="最近碰到过两次服务器不响应SYN包的情况，刚开始感觉真的是莫名其妙，解决过程也是挺纠结的，记录一下：
+
+iptables问题
+
+同样的iptables策略在阿里云服务器上没有问题，但是在AWS EC2上就有问题，现象之一就是外部服务器可以跟服务器端口通信，但是同一VPC内部的服务器访问时，端口不通；
+经过排查，问题定位在iptables策略上，只能一条一条排查，最终发现问题出在这两条策略上：
+12">
 
 
 
@@ -113,9 +132,9 @@
 
 
 
-  <link rel="canonical" href="http://wangzfei.me/categories/随笔/"/>
+  <link rel="canonical" href="http://wangzfei.me/2016/08/15/syn-no-response/"/>
 
-  <title> 分类: 随笔 | 北溟的Blog </title>
+  <title> 服务器不响应SYN的原因 | 北溟的Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -136,7 +155,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-right  ">
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -234,47 +253,164 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        随笔
-        <small>分类</small>
-      </h2>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                服务器不响应SYN的原因
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-15T19:01:42+09:00" content="2016-08-15">
+              2016-08-15
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/linux/" itemprop="url" rel="index">
+                    <span itemprop="name">linux</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/15/syn-no-response/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/15/syn-no-response/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <p>最近碰到过两次服务器不响应SYN包的情况，刚开始感觉真的是莫名其妙，解决过程也是挺纠结的，记录一下：</p>
+<ul>
+<li>iptables问题</li>
+</ul>
+<p>同样的iptables策略在阿里云服务器上没有问题，但是在AWS EC2上就有问题，现象之一就是外部服务器可以跟服务器端口通信，但是同一VPC内部的服务器访问时，端口不通；</p>
+<p>经过排查，问题定位在iptables策略上，只能一条一条排查，最终发现问题出在这两条策略上：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">iptables -A INPUT -p tcp -m ttl --ttl<span class="_">-lt</span> 5 -j DROP</div><div class="line">iptables -A INPUT -p tcp -m ttl --ttl<span class="_">-gt</span> 128 -j DROP</div></pre></td></tr></table></figure>
+<p>原来是Amazon Linux系统的TTL默认值是255，不在5 - 128 范围之内，所以被服务器直接丢弃了，这两条策略也是从网上不知道哪里抄来的，把服务器收到的包TTL限制在5 - 128之间，想想真是后患无穷啊！</p>
+<ul>
+<li>net.ipv4.tcp_tw_recycle</li>
+</ul>
+<p>这个内核参数，网上搜搜，都建议打开，可以快速回收timewait连接，刚开始我也是设置的打开，导致的问题就是，公司内部访问服务器时，有的设备可以通信，有的设备端口不通，我的建议是不打开，否则nat网络后端的设备访问时就会出现异常，详细原因就不说了，自行google。</p>
+<p>总结一下，网上的参数不可以随便拿来用呀，一定要搞清楚再用。</p>
 
-      <h1 class="post-title">
+      
+    </div>
+
+    <div>
+      
         
-            <a class="post-title-link" href="/2016/08/11/helloworld/" itemprop="url">
-              
-                <span itemprop="name">Hello World</span>
-              
-            </a>
+
+      
+    </div>
+
+    <div>
+      
         
-      </h1>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-08-11T22:11:49+09:00"
-              content="2016-08-11" >
-          08-11
-        </time>
-      </div>
+      
+    </div>
 
-    </header>
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/SYN/" rel="tag">#SYN</a>
+          
+            <a href="/tags/不响应SYN/" rel="tag">#不响应SYN</a>
+          
+            <a href="/tags/iptables/" rel="tag">#iptables</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/12/nodejs-win-prefix/" rel="next" title="Windows nodejs prefix变量设置">
+                <i class="fa fa-chevron-left"></i> Windows nodejs prefix变量设置
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </section>
 
-  
-
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -282,6 +418,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/08/15/syn-no-response/"
+           data-title="服务器不响应SYN的原因" data-url="http://wangzfei.me/2016/08/15/syn-no-response/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -301,8 +445,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.png"
@@ -352,6 +505,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -448,6 +612,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
