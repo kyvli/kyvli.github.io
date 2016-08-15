@@ -14,7 +14,7 @@ duoshuo_shortname: kyvi
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://wangzfei.me
+url: http://kyvi.me
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
