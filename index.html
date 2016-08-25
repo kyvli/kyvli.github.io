@@ -86,12 +86,12 @@
 
 <meta name="description" content="宁静以致远">
 <meta property="og:type" content="website">
-<meta property="og:title" content="北溟的Blog">
-<meta property="og:url" content="http://wangzfei.me/index.html">
-<meta property="og:site_name" content="北溟的Blog">
+<meta property="og:title" content="淫雨菲菲">
+<meta property="og:url" content="http://kyvi.me/index.html">
+<meta property="og:site_name" content="淫雨菲菲">
 <meta property="og:description" content="宁静以致远">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="北溟的Blog">
+<meta name="twitter:title" content="淫雨菲菲">
 <meta name="twitter:description" content="宁静以致远">
 
 
@@ -113,9 +113,9 @@
 
 
 
-  <link rel="canonical" href="http://wangzfei.me/"/>
+  <link rel="canonical" href="http://kyvi.me/"/>
 
-  <title> 北溟的Blog </title>
+  <title> 淫雨菲菲 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -148,7 +148,7 @@
   <div class="custom-logo-site-title">
     <a href="/"  class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <span class="site-title">北溟的Blog</span>
+      <span class="site-title">淫雨菲菲</span>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
@@ -623,6 +623,138 @@
 
 
     
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2012/05/17/win-route-fail/" itemprop="url">
+                  Windows route命令提示"路由添加失败:找不到元素"原因分析
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2012-05-17T21:01:42+09:00" content="2012-05-17">
+              2012-05-17
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/windows/" itemprop="url" rel="index">
+                    <span itemprop="name">windows</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2012/05/17/win-route-fail/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2012/05/17/win-route-fail/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>这篇文章是从我的百度博客迁过来的</p>
+</blockquote>
+<p>实验需要，在电脑上弄了两个Loopback接口，并分配了不同网段的地址，但是在宿主机与客户机通信时，第一个包总是很慢，于是想到了添加静态路由，但是又发现windows下的route命令真是很难搞，总是报莫名奇妙的错误，其中一个就是添加路由时提示“路由添加失败: 找不到元素。”，折磨了很久，终于发现了个中原因：</p>
+<p>其实原因很简单，就是命令不完整，一条完整的route命令应该像这样：</p>
+<figure class="highlight bat"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">route add <span class="number">0</span>.<span class="number">0</span>.<span class="number">0</span>.<span class="number">0</span> mask <span class="number">0</span>.<span class="number">0</span>.<span class="number">0</span>.<span class="number">0</span> <span class="number">192</span>.<span class="number">168</span>.<span class="number">1</span>.<span class="number">1</span> metric <span class="number">1</span> <span class="keyword">IF</span> <span class="number">31</span></div></pre></td></tr></table></figure>
+<p>其中，192.168.1.1是网关，IF 31是接口，这个接口在电脑有多个网卡时是必不可少的，因为你需要确定一条路由是从哪个接口进来和出去的，31就是执行route print后，每个网卡前面的第一个省略号前面的数字。</p>
+<p>这样，在同时需要连接内网和外网时，可以把外网的网关设为默认网关，内网的网段一一添加到静态路由中，比方说我的路由如下：</p>
+<figure class="highlight bat"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">route -f</div><div class="line">route add <span class="number">0</span>.<span class="number">0</span>.<span class="number">0</span>.<span class="number">0</span> mask <span class="number">0</span>.<span class="number">0</span>.<span class="number">0</span>.<span class="number">0</span> <span class="number">192</span>.<span class="number">168</span>.<span class="number">1</span>.<span class="number">1</span> metric <span class="number">1</span> <span class="keyword">IF</span> <span class="number">31</span></div><div class="line">route add <span class="number">192</span>.<span class="number">168</span>.<span class="number">1</span>.<span class="number">0</span> mask <span class="number">255</span>.<span class="number">255</span>.<span class="number">255</span>.<span class="number">0</span> <span class="number">192</span>.<span class="number">168</span>.<span class="number">1</span>.<span class="number">119</span> <span class="keyword">IF</span> <span class="number">17</span></div><div class="line">route add <span class="number">192</span>.<span class="number">168</span>.<span class="number">2</span>.<span class="number">0</span> mask <span class="number">255</span>.<span class="number">255</span>.<span class="number">255</span>.<span class="number">0</span> <span class="number">192</span>.<span class="number">168</span>.<span class="number">2</span>.<span class="number">119</span> <span class="keyword">IF</span> <span class="number">18</span></div></pre></td></tr></table></figure>
+<p>192.168.1.119 和192.168.2.119 分别为我的两个Loopback接口的IP地址，这个和后面的IF需要是对应的。</p>
+<p>我的IF也贴出来如下：</p>
+<figure class="highlight bat"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function">C:\<span class="title">Users</span>&gt;<span class="title">route</span> <span class="title">print</span></span></div><div class="line">===========================================================================</div><div class="line">接口列表</div><div class="line">31...20 7<span class="title">c</span> 8<span class="title">f</span> 61 73 <span class="title">d0</span> ......<span class="title">Qualcomm</span> <span class="title">Atheros</span> <span class="title">AR5B97</span> <span class="title">Wireless</span> <span class="title">Network</span> <span class="title">Adapter</span></div><div class="line">20...<span class="title">f8</span> <span class="title">f8</span> <span class="title">f8</span> <span class="title">f8</span> <span class="title">f8</span> <span class="title">f8</span> ......<span class="title">Sangfor</span> <span class="title">VPN</span> <span class="title">virtual</span> <span class="title">network</span> <span class="title">adapter</span></div><div class="line">18...02 00 4<span class="title">c</span> 4<span class="title">f</span> 4<span class="title">f</span> 50 ......<span class="title">Microsoft</span> <span class="title">Loopback</span> <span class="title">Adapter</span> #2</div><div class="line">17...02 00 4<span class="title">c</span> 4<span class="title">f</span> 4<span class="title">f</span> 50 ......<span class="title">Microsoft</span> <span class="title">Loopback</span> <span class="title">Adapter</span></div><div class="line">12...20 6<span class="title">a</span> 8<span class="title">a</span> 39 <span class="title">e4</span> 7<span class="title">a</span> ......<span class="title">Broadcom</span> <span class="title">NetLink</span> (<span class="title">TM</span>) <span class="title">Gigabit</span> <span class="title">Ethernet</span></div><div class="line">27...08 00 27 00 44 <span class="title">fc</span> ......<span class="title">VirtualBox</span> <span class="title">Host</span>-<span class="title">Only</span> <span class="title">Ethernet</span> <span class="title">Adapter</span></div><div class="line">28...00 50 56 <span class="title">c0</span> 00 08 ......<span class="title">VMware</span> <span class="title">Virtual</span> <span class="title">Ethernet</span> <span class="title">Adapter</span> <span class="title">for</span> <span class="title">VMnet8</span></div><div class="line">1...........................<span class="title">Software</span> <span class="title">Loopback</span> <span class="title">Interface</span> 1</div><div class="line">13...00 00 00 00 00 00 00 <span class="title">e0</span> <span class="title">Microsoft</span> <span class="title">ISATAP</span> <span class="title">Adapter</span></div><div class="line">15...00 00 00 00 00 00 00 <span class="title">e0</span> <span class="title">Microsoft</span> <span class="title">ISATAP</span> <span class="title">Adapter</span> #2</div><div class="line">10...00 00 00 00 00 00 00 <span class="title">e0</span> <span class="title">Microsoft</span> <span class="title">Teredo</span> <span class="title">Tunneling</span> <span class="title">Adapter</span></div><div class="line">14...00 00 00 00 00 00 00 <span class="title">e0</span> <span class="title">Microsoft</span> <span class="title">ISATAP</span> <span class="title">Adapter</span> #3</div></pre></td></tr></table></figure>
+<p>windows的route命令帮助写的真烂，坑爹啊，折腾好几个晚上了，就这个问题。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
   </section>
 
   
@@ -664,7 +796,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-count">4</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -681,7 +813,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="nodejs prefix," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -84,19 +84,15 @@
 
 
 
-<meta name="description" content="linux下，nodejs安装完成后，prefix变量值为nodejs安装目录，这样npm install -g 安装的包都会在安装目录下；
-但是在win下，默认的prefix值并不是nodejs的安装目录，而是C:\Users\username\AppData\Roaming，然后npm install -g安装的包都会在C:\Users\username\AppData\Roaming\npm">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Windows nodejs prefix变量设置">
-<meta property="og:url" content="http://kyvi.me/2016/08/12/nodejs-win-prefix/index.html">
+<meta name="description" content="宁静以致远">
+<meta property="og:type" content="website">
+<meta property="og:title" content="淫雨菲菲">
+<meta property="og:url" content="http://kyvi.me/tags/windows-route/index.html">
 <meta property="og:site_name" content="淫雨菲菲">
-<meta property="og:description" content="linux下，nodejs安装完成后，prefix变量值为nodejs安装目录，这样npm install -g 安装的包都会在安装目录下；
-但是在win下，默认的prefix值并不是nodejs的安装目录，而是C:\Users\username\AppData\Roaming，然后npm install -g安装的包都会在C:\Users\username\AppData\Roaming\npm">
-<meta property="og:updated_time" content="2016-08-13T06:10:38.820Z">
+<meta property="og:description" content="宁静以致远">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Windows nodejs prefix变量设置">
-<meta name="twitter:description" content="linux下，nodejs安装完成后，prefix变量值为nodejs安装目录，这样npm install -g 安装的包都会在安装目录下；
-但是在win下，默认的prefix值并不是nodejs的安装目录，而是C:\Users\username\AppData\Roaming，然后npm install -g安装的包都会在C:\Users\username\AppData\Roaming\npm">
+<meta name="twitter:title" content="淫雨菲菲">
+<meta name="twitter:description" content="宁静以致远">
 
 
 
@@ -117,9 +113,9 @@
 
 
 
-  <link rel="canonical" href="http://kyvi.me/2016/08/12/nodejs-win-prefix/"/>
+  <link rel="canonical" href="http://kyvi.me/tags/windows-route/"/>
 
-  <title> Windows nodejs prefix变量设置 | 淫雨菲菲 </title>
+  <title> 标签: windows route | 淫雨菲菲 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -140,7 +136,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-right page-post-detail ">
+  <div class="container one-collumn sidebar-position-right  ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -238,165 +234,46 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                Windows nodejs prefix变量设置
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-12T20:39:11+09:00" content="2016-08-12">
-              2016-08-12
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/windows/" itemprop="url" rel="index">
-                    <span itemprop="name">windows</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/08/12/nodejs-win-prefix/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/12/nodejs-win-prefix/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <p>linux下，nodejs安装完成后，prefix变量值为nodejs安装目录，这样<code>npm install -g</code> 安装的包都会在安装目录下；</p>
-<p>但是在win下，默认的prefix值并不是nodejs的安装目录，而是<code>C:\Users\username\AppData\Roaming</code>，然后<code>npm install -g</code>安装的包都会在<code>C:\Users\username\AppData\Roaming\npm</code>下，感觉还是放在安装目录比较好，也方便把配置好的整个nodejs环境部署到其他电脑；</p>
-<p>方法很简单：</p>
-<p>打开nodejs的安装目录下的这个文件，<code>D:\svr\nodejs\node_modules\npm\npmrc</code>，文件内容如下：</p>
-<pre><code class="batch">prefix=${APPDATA}\npm
-</code></pre>
-<p>注释这行即可，或者直接删掉这个文件</p>
-<pre><code class="batch">; prefix=${APPDATA}\npm
-</code></pre>
-<p>然后执行这个命令确认一下：</p>
-<pre><code class="batch">npm config ls -l
-</code></pre>
-<p>可以看出来，其实npm的prefix默认值就是nodejs安装目录，只是这个配置文件覆盖了默认值。</p>
-<p>还有个需要注意的地方就是，之前的nodejs版本如果设置prefix为nodejs安装目录，npm命令执行会报错，v4.4.7版本已经没有这个问题了。</p>
-
-      
+  <div id="posts" class="posts-collapse">
+    <div class="collection-title">
+      <h2 >
+        windows route
+        <small>标签</small>
+      </h2>
     </div>
 
-    <div>
+    
       
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h1 class="post-title">
         
-
-      
-    </div>
-
-    <div>
-      
+            <a class="post-title-link" href="/2012/05/17/win-route-fail/" itemprop="url">
+              
+                <span itemprop="name">Windows route命令提示"路由添加失败:找不到元素"原因分析</span>
+              
+            </a>
         
+      </h1>
 
-      
-    </div>
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2012-05-17T21:01:42+09:00"
+              content="2012-05-17" >
+          05-17
+        </time>
+      </div>
 
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/nodejs-prefix/" rel="tag">#nodejs prefix</a>
-          
-        </div>
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2016/08/11/helloworld/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
-              </a>
-            
-          </div>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/08/15/syn-no-response/" rel="prev" title="服务器不响应SYN的原因">
-                服务器不响应SYN的原因 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
+    </header>
   </article>
 
 
-
-    <div class="post-spread">
-      
-    </div>
+    
   </div>
+
+  
 
 
           </div>
@@ -404,14 +281,6 @@
 
 
           
-  <div class="comments" id="comments">
-    
-      <div class="ds-thread" data-thread-key="2016/08/12/nodejs-win-prefix/"
-           data-title="Windows nodejs prefix变量设置" data-url="http://kyvi.me/2016/08/12/nodejs-win-prefix/">
-      </div>
-    
-  </div>
-
 
         </div>
         
@@ -431,17 +300,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel ">
+      <section class="site-overview sidebar-panel  sidebar-panel-active ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.png"
@@ -491,17 +351,6 @@
 
       </section>
 
-      
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-            
-              
-            
-            
-              <p class="post-toc-empty">此文章未包含目录</p>
-            
-          </div>
-        </section>
       
 
     </div>
@@ -598,10 +447,6 @@
   
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
-
-
 
   
 
